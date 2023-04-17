@@ -4,7 +4,7 @@
 # Photo service
   
   
-# [Страница](bakemonoo.github.io/photo-service/)
+# bakemonoo.github.io/photo-service/
 
 
 ### Возможности сервиса:
