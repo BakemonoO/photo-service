@@ -1,4 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  transpileDependencies: true
+  devServer: {
+    allowedHosts: "all",
+  },
+  transpileDependencies: true,
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/photo-service/'
+  : '/',
+  outputDir: 'docs'
 })

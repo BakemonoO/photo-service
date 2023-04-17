@@ -1,30 +1,110 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="app" @click="inputFalsy">
+    <app-header/>
+    <router-view style="flex-grow: 1"/>
+
+   <div class="absolute-btn"
+   v-show="scrollBtn"
+   >
+      <option-button 
+      :height="50" 
+      :width="50" 
+      :color="'white'"
+      @action="scrollToStart"     
+      >🡡</option-button>
+      </div>
+
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import AppHeader from './components/AppHeader.vue'
+import OptionButton from './components/UI/OptionButton.vue'
+  export default {
+  components: { AppHeader, OptionButton },
 
-nav {
-  padding: 30px;
+    data() {
+      return {
+        scrollBtn: false
+      }
+    },
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+    methods: {
+      scrollToStart() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+      },
 
-    &.router-link-exact-active {
-      color: #42b983;
+      scrollIs() {
+       window.scrollY > 300 ? this.scrollBtn = true : this.scrollBtn = false
+      },
+
+      inputFalsy() {
+        this.$store.state.shortInput ? this.$store.commit('changeShortInput') : false
+      }
+    },
+
+    created() {
+      this.$store.dispatch('getHeaderPic')
+    },
+
+    mounted() {
+      this.$store.dispatch('getSomePics')
+      window.addEventListener('scroll', this.scrollIs)
     }
   }
+</script>
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family:'Roboto', sans-serif;
 }
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.absolute-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+a {
+  text-decoration: none;
+  &:visited {
+    color: red
+  }
+}
+
+.loader {
+    width: 70px;
+    height: 70px;
+    border: 5px solid #FFF200;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+
 </style>
