@@ -11,7 +11,7 @@
       :width="50" 
       :color="'white'"
       @action="scrollToStart"     
-      >🡡</option-button>
+      >Up</option-button>
       </div>
 
   </div>
@@ -76,8 +76,8 @@ import OptionButton from './components/UI/OptionButton.vue'
 
 .absolute-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 40px;
+  right: 40px;
 }
 
 a {
@@ -106,5 +106,12 @@ a {
         transform: rotate(360deg);
     }
     }
+
+  @media (width > 324px) and (width < 600px) {
+    .absolute-btn {
+      bottom: 15px;
+      right: 15px;
+}
+  }
 
 </style>

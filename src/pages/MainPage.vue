@@ -12,11 +12,13 @@
     v-else 
     :items="$store.state.queryData"/>
 
+    <div class="mobile">
+    <option-button style="margin-bottom: 30px" :width="200" :height="50" @action="getPics">Загрузить еще...</option-button>
+    </div>
     <div class="loader"
     v-if="$store.state.loader"
     ></div>
-
-    <div ref="observer" class="observer"></div>
+    
   </div>
 </template>
 
@@ -32,6 +34,10 @@ import OptionButton from '../components/UI/OptionButton.vue'
     maxScroll() {
       if (this.$route.path === '/' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight)
         this.$store.state.queryData.length > 0 ? this.$store.dispatch('getQueryPics') : this.$store.dispatch('getSomePics')
+    },
+
+    getPics() {
+      this.$store.state.queryData.length > 0 ? this.$store.dispatch('getQueryPics') : this.$store.dispatch('getSomePics')
     }
   },
 
@@ -52,10 +58,17 @@ import OptionButton from '../components/UI/OptionButton.vue'
   align-items: center;
 }
 
-.observer {
-  height: 50px;
-  width: 100%;
-  z-index: 999;
+.mobile {
+  display: none;
 }
+
+@media (width > 324px) and (width < 600px) {
+  .mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 
 </style>
