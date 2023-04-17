@@ -2,7 +2,7 @@
   <button class="btn"
   :class="responsive ? responsive : ''"
   @click="$emit('action')"
-  :style="styles"
+  :style="color ? `background-color: ${color}` : 'none'"
   >
     <slot/>
   </button>
@@ -17,16 +17,6 @@
       height: Number,
       responsive: String
     },
-
-    data() {
-      return {
-        styles: {
-          background: this.color ? this.color : 'none',
-          width: this.width + 'px',
-          height: this.height + 'px'
-        }
-      }
-    }
 
   }
 </script>
@@ -53,7 +43,7 @@
   height: 50px;
 }
 
-.btn200 {
+.btn50{
   width: 50px;
   height: 50px;
 }
