@@ -23,4 +23,4 @@
   
 **8.** Страница адаптивна под актуальные размеры дисплеев.  
 
-[1920px ширина. Главная страница](https://psv4.userapi.com/c235031/u27278000/docs/d22/a5067dca44bc/Desktop_Screenshot_2023_04_17_-_09_09_29_61__kopia.png?extra=6o7-l-GKygSaVEA3zDYNadObPrq0MunQi_Up_9a6g6RxKfcvQOy6fo966u_ExVQUOEDT9kY7ibUcBXbUrFDTAT2Vsdom4Qjgm3FFKGqd-wYce8pLQXZ98cLNlT2fy19thOQ7q7BM73YGgH0W-JVOPkk)
+![1920px ширина. Главная страница](https://psv4.userapi.com/c235031/u27278000/docs/d22/a5067dca44bc/Desktop_Screenshot_2023_04_17_-_09_09_29_61__kopia.png?extra=6o7-l-GKygSaVEA3zDYNadObPrq0MunQi_Up_9a6g6RxKfcvQOy6fo966u_ExVQUOEDT9kY7ibUcBXbUrFDTAT2Vsdom4Qjgm3FFKGqd-wYce8pLQXZ98cLNlT2fy19thOQ7q7BM73YGgH0W-JVOPkk)
