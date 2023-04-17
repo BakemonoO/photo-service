@@ -16,7 +16,6 @@
     v-if="$store.state.loader"
     ></div>
 
-    <div ref="observer" class="observer"></div>
   </div>
 </template>
 
@@ -28,7 +27,7 @@ import OptionButton from '../components/UI/OptionButton.vue'
   components: { CardList, OptionButton, Search },
   name: 'main-page',
 
-  methods: {
+ methods: {
     maxScroll() {
       if (this.$route.path === '/' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight)
         this.$store.state.queryData.length > 0 ? this.$store.dispatch('getQueryPics') : this.$store.dispatch('getSomePics')
@@ -38,6 +37,8 @@ import OptionButton from '../components/UI/OptionButton.vue'
   mounted() {
     window.addEventListener('scroll', this.maxScroll)
   }
+
+  
 
   }
 </script>
@@ -50,12 +51,6 @@ import OptionButton from '../components/UI/OptionButton.vue'
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.observer {
-  height: 50px;
-  width: 100%;
-  z-index: 999;
 }
 
 </style>
