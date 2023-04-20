@@ -7,8 +7,7 @@
    v-show="scrollBtn"
    >
       <option-button 
-      :height="50" 
-      :width="50" 
+      :responsive="'btn50'"
       :color="'white'"
       @action="scrollToStart"     
       >Up</option-button>

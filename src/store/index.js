@@ -50,6 +50,10 @@ export default createStore({
       state.shortInput = !state.shortInput
     },
 
+    changeFirstQueryData(state, data) {
+      state.queryData = data
+    },
+
     changeQueryData(state, data) {
       state.queryData = state.queryData.concat(data)
     },
@@ -132,6 +136,26 @@ export default createStore({
         }})
         commit('changeQueryData', response.data.results)
         commit('pageUp')
+      } catch (error) {
+        console.log(error)
+      } finally {
+        commit('changeLoader', false)
+      }
+    },
+
+    async getFirstQueryPics({state, commit}, data) {
+      try {
+        commit('changeLoader', true)
+        const response = await axios.get('https://api.unsplash.com/search/photos', {
+        params: {
+          client_id: state.acсessApiKey,
+          per_page: state.perPage,
+          page: state.page,
+          orientation: 'landscape',
+          query: state.query
+        }})
+        commit('changeFirstQueryData', response.data.results)
+        commit('clearPage')
       } catch (error) {
         console.log(error)
       } finally {

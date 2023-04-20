@@ -29,7 +29,7 @@
       getQuery() {
         this.$store.commit('clearPage')
         this.$store.commit('changeQuery', this.search)
-        this.$store.dispatch('getQueryPics', this.search)
+        this.$store.dispatch('getFirstQueryPics', this.search)
       }
     },
 
